@@ -1,9 +1,6 @@
-
-
-
 Matrix::Matrix() {
 
-	std::cout << "This matrix has a row count of ";
+	std::cout << "We will collect information regarding 2 matrices. You can add more later if needed. \nThis matrix has a row count of ";
 	std::cin >> dimx;
 	std::cout << "\nand this matrix has a column count of ";
 	std::cin >> dimy;
@@ -13,14 +10,43 @@ Matrix::Matrix() {
 	M.resize(dimx, std::vector<int>(dimy));
 }
 
-void Matrix::add(std::vector<std::vector<int>> v1, std::vector<std::vector<int>> v2) {
-	if (isValid(v1, v2)) {
-
-	}
+Matrix::Matrix(unsigned int x, unsigned int y) {
+	dimx = x;
+	dimy = y;
+	matrixSize = dimx * dimy;
+	M.resize(dimx, std::vector<int>(dimy));
 }
 
-void Matrix::subtract(std::vector<std::vector<int>> v1, std::vector<std::vector<int>> v2) {
 
+void Add(Matrix m1, Matrix m2) {
+
+	Matrix Sum(m1.GetDimX(), m1.GetDimY());
+
+	if (isValid(m1, m2)) {
+		for (int i = 0; i < m1.M.size(); i++) {
+			for (int j = 0; j < m1.M[i].size(); j++) {
+				Sum.M[i][j] = m1.M[i][j] + m2.M[i][j];
+			}
+		}
+		Sum.showMatrix();
+	}
+	else
+		std::cout << "\nsizes do not match: resize matrix size.\n\n";
+}
+
+void Subtract(Matrix m1, Matrix m2) {
+	Matrix Sum(m1.GetDimX(), m1.GetDimY());
+
+	if (isValid(m1, m2)) {
+		for (int i = 0; i < m1.M.size(); i++) {
+			for (int j = 0; j < m1.M[i].size(); j++) {
+				Sum.M[i][j] = m1.M[i][j] - m2.M[i][j];
+			}
+		}
+		Sum.showMatrix();
+	}
+	else
+		std::cout << "\nsizes do not match: resize matrix size.\n\n";
 }
 
 void Matrix::Multiply() {
@@ -39,38 +65,46 @@ void Matrix::NullSpace() {
 
 }
 
-void Matrix::DeleteMatrix() {
 
-}
+void Matrix::InputComponentsMatrix() {
+	int newComp;
 
-void Matrix::DeleteAll() {
-
-}
-
-void Matrix::NewMatrix() {
-
-}
-
-bool Matrix::isValid(std::vector<std::vector<int>> v1, std::vector<std::vector<int>> v2) {
-
-	if (v1.size() != v2.size()) {
-		std::cout << "non valid operation: sizes do not match - first matrix size has " << v1.size();
-		std::cout << "\n and the second matrix has " << v2.size() << std::endl;
-		return false;
+	for (int i = 0; i < M.size(); i++) {
+		for (int j = 0; j < M[i].size(); j++) {
+			std::cout << "input row " << i << " column " << j << ": ";
+			std::cin >> newComp;
+			M[i][j] = newComp;
+		}
 	}
-	else {
+
+}
+
+bool isValid(Matrix m1, Matrix m2) {
+
+	if (m1.GetDimX() == m2.GetDimX() && m1.GetDimY() == m2.GetDimY()) {
 		return true;
 	}
-}
 
-unsigned int Matrix::GetSize(Matrix M) {
+	std::cout << "False";
+	return false;
+}
+	
+
+unsigned int Matrix::GetSize() {
 	return matrixSize;
 }
 
+unsigned int Matrix::GetDimX() {
+	return dimx;
+}
 
-void showMatrix(Matrix V) {
+unsigned int Matrix::GetDimY() {
+	return dimy;
+}
 
-	for (auto vec : V.M)
+
+void Matrix::showMatrix() {
+	for (auto vec : M)
 	{
 		std::cout << "[ ";
 		for (auto x : vec)

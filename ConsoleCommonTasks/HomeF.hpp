@@ -29,22 +29,33 @@ void callLinear() {
 		std::cout << "\n6. NullSpace";
 		std::cout << "\n7. DeleteMatrix";
 		std::cout << "\n8. DeleteAll";
-		std::cout << "\n9. NewMatrix";
+		std::cout << "\n9. Input components of Matrices";
 		std::cout << "\n123. Exit";
 		std::cout << "\nWelcome! Please choose a valid option(integer only):";
 		std::cin >> choice;
 
 		switch (choice) {
-		case 0: showMatrix(M1);
-		case 1:std::cout << "\nadd\n\n"; break;
-		case 2: std::cout << "\nSubtract\n\n"; break;
+		case 0: std::cout << "Matrix 1: \n"; M1.showMatrix();
+				std::cout << "Matrix 2: \n"; M2.showMatrix(); break;
+		case 1: Add(M1, M2); break;
+		case 2: Subtract(M1, M2); break;
 		case 3: std::cout << "\nMultiply\n\n"; break;
 		case 4: std::cout << "\nColumnSpace\n\n"; break;
 		case 5: std::cout << "\nRowSpace\n\n";  break;
 		case 6: std::cout << "\nNullSpace\n\n"; break;
 		case 7: std::cout << "\nDeleteMatrix\n\n"; break;
 		case 8: std::cout << "\nDeleteAll\n\n"; break;
-		case 9: std::cout << "\nNewMatrix\n\n"; break;
+		case 9: std::cout << "change first, second, or both matrices?\nchoose 'f' for first, 's' for second or 'b' for both: ";
+				char c;
+				std::cin >> c;
+				if(c== 'f')
+					M1.InputComponentsMatrix();
+				else if(c=='s')
+					M2.InputComponentsMatrix();
+				else {
+					M1.InputComponentsMatrix(); std::cout << "\n\n"; M2.InputComponentsMatrix();
+				}
+				break;
 		case 123: system("CLS"); break;
 		}
 
@@ -53,4 +64,22 @@ void callLinear() {
 
 void callData() {
 
+}
+
+void callLibCurl() {
+
+	unsigned int choice;
+
+	do {
+		std::cout << "\nPlease choose an Option: ";
+		std::cout << "\n1. Send Email";
+		std::cout << "\n2. Check New Emails";
+		std::cin >> choice;
+		system("CLS");
+		switch (choice) {
+		case 1: std::cout << ""; break;
+		case 2: std::cout << ""; break;
+		}
+
+	} while (choice != 123);
 }
