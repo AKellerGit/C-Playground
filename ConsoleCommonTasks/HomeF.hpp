@@ -63,7 +63,20 @@ void callLinear() {
 }
 
 void callData() {
+	unsigned int choice;
 
+	do {
+		std::cout << "\nPlease choose an Option: ";
+		std::cout << "\n1. Send Email";
+		std::cout << "\n2. Check New Emails";
+		std::cin >> choice;
+		system("CLS");
+		switch (choice) {
+		case 1: std::cout << ""; break;
+		case 2: std::cout << ""; break;
+		}
+
+	} while (choice != 123);
 }
 
 void callLibCurl() {

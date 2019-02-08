@@ -1,8 +1,2 @@
-﻿  ConsoleCommonTasks.cpp
-c:\users\ak\desktop\prog\consolecommontasks\consolecommontasks\linearf.hpp(26): warning C4018: '<': signed/unsigned mismatch
-c:\users\ak\desktop\prog\consolecommontasks\consolecommontasks\linearf.hpp(27): warning C4018: '<': signed/unsigned mismatch
-c:\users\ak\desktop\prog\consolecommontasks\consolecommontasks\linearf.hpp(41): warning C4018: '<': signed/unsigned mismatch
-c:\users\ak\desktop\prog\consolecommontasks\consolecommontasks\linearf.hpp(42): warning C4018: '<': signed/unsigned mismatch
-c:\users\ak\desktop\prog\consolecommontasks\consolecommontasks\linearf.hpp(72): warning C4018: '<': signed/unsigned mismatch
-c:\users\ak\desktop\prog\consolecommontasks\consolecommontasks\linearf.hpp(73): warning C4018: '<': signed/unsigned mismatch
-  ConsoleCommonTasks.vcxproj -> C:\Users\ak\Desktop\prog\ConsoleCommonTasks\Debug\ConsoleCommonTasks.exe
+﻿ConsoleCommonTasks.obj : error LNK2019: unresolved external symbol __imp__curl_easy_init referenced in function "void __cdecl sendEmail(void)" (?sendEmail@@YAXXZ)
+C:\Users\ak\Desktop\prog\ConsoleCommonTasks\Debug\ConsoleCommonTasks.exe : fatal error LNK1120: 1 unresolved externals

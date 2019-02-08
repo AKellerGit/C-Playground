@@ -91,10 +91,13 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalUsingDirectories>C:\Program Files\tools\curl-7.63.0-win64-mingw\include\curl</AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>C:\cURL\include\curl</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\tools\curl-7.63.0-win64-mingw\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -153,14 +156,20 @@
   <ItemGroup>
     <ClInclude Include="DataF.h" />
     <ClInclude Include="DataF.hpp" />
+    <ClInclude Include="EmailF.h" />
+    <ClInclude Include="EmailF.hpp" />
     <ClInclude Include="HomeF.h" />
     <ClInclude Include="HomeF.hpp" />
     <ClInclude Include="LinearF.h" />
     <ClInclude Include="LinearF.hpp" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="vectorF.h" />
+    <ClInclude Include="VectorF.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ConsoleCommonTasks.cpp" />
+    <ClCompile Include="ConsoleCommonTasks.cpp">
+      <AdditionalUsingDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Program Files\tools\curl-7.63.0-win64-mingw\lib</AdditionalUsingDirectories>
+    </ClCompile>
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
